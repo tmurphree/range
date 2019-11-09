@@ -20,14 +20,18 @@ range(42, 42);
 ```
 
 ## More realistic usage  
-Useful for Promise.all and paging:
+Useful as a starting point for Array.map.  E.g. with Promise.all and paging:
 ``` js
 const axios = require('axios');
-const totalPages = 12;
 
-Promise.all(
-  range(2, totalPages) // [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const getAllPages = (lastPageNumber) => return Promise.all(
+  range(1, lastPageNumber) // [1, 2, 3, 4, . . . all the way to lastPageNumber]
     .map((pageNumber) => `https://api.foo.com/getReports?key=${process.env.KEY}&page=${pageNumber}`)
     .map(axios.get)
 );
+
+getTotalPages()
+  .then(getAllPages)
+  .then(doSomethingUseful)
+  .catch(myGreatErrorHandler);
 ```
