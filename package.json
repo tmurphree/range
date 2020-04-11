@@ -1,27 +1,31 @@
 {
   "name": "@tmurphree/range",
   "version": "1.0.1",
-  "description": "",
+  "description": "Return an array with numbers either ascending or descending.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore --fix --fix-type layout .",
     "lint:fix": "eslint --ignore-path .gitignore --fix .",
     "postinstall": "npm audit",
-    "pretest": "eslint --ignore-path .gitignore .",
+    "pretest": "npm run lint",
     "test": "jasmine",
     "preversion": "npm run test"
   },
-  "keywords": [],
+  "keywords": ["range", "iterate"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "6.1.0",
-    "eslint-config-airbnb-base": "14.0.0",
-    "eslint-plugin-import": "2.18.2",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-plugin-import": "2.20.2",
     "jasmine": "3.5.0"
   },
   "dependencies": {
     "dotenv": "8.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmurphree/range.git"
   },
   "engines": {
     "node": ">=12.0.0"
